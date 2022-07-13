@@ -1,0 +1,112 @@
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css");
+@import url("https://fonts.googleapis.com/css2?family=Tajawal:wght@200;300;400;500;700;800;900&display=swap");
+html {
+    margin: 0px;
+}
+
+body {
+    font-family: "Tajawal", sans-serif;
+    direction: rtl;
+    text-align: right;
+}
+
+:root {
+    --s-color: white;
+    --ss-color: #6f3591;
+    --main-color: var(--s-color);
+    --secondary-color: var(--ss-color);
+}
+
+a {
+    text-decoration: none;
+}
+
+.orders .row {
+    width: 100%;
+    margin: 0;
+    height: 100%;
+}
+
+.order {
+    /* height: 50%!important; */
+    background-color: var(--main-color);
+    /* vertical-align: middle; */
+    /* text-align: center; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* max-height: 100%; */
+    /* border: 0.1ch solid var(--secondary-color); */
+}
+
+.order-img {
+    width: 100% !important;
+    height: 121px !important;
+    object-fit: contain;
+    /* text-align: center; */
+}
+
+.svg {
+    display: none;
+}
+
+.order-title {
+    color: var(--secondary-color);
+    text-align: center;
+    margin: 25px;
+    top: 0px;
+}
+
+.order-description {
+    text-align: center;
+    color: var(--secondary-color);
+    display: none;
+}
+
+.order:hover {
+    /* --main-color: white;
+    --secondary-color: #1b3d3fdc; */
+    --secondary-color: var(--s-color) !important;
+    --main-color: var(--ss-color) !important;
+}
+
+
+/* .order:hover .order-img {
+    color: white!important;
+} */
+
+.order:hover .png {
+    display: none !important;
+}
+
+.order:hover .svg {
+    display: block;
+}
+
+.order:hover .order-title,
+.order:hover .order-img {
+    position: relative;
+    display: block;
+    margin-bottom: 20px;
+    top: 10px;
+    transition: top 0.5s;
+}
+
+
+/* , .order:hover .order-title, .order:hover .order-img  */
+
+.order:hover .order-description {
+    display: block;
+    animation: fade_in_show 0.5s;
+}
+
+@keyframes fade_in_show {
+    0% {
+        opacity: 0;
+        transform: scale(0);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}

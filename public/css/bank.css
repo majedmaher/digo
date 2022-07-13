@@ -1,0 +1,106 @@
+    body {
+        margin: 15px;
+    }
+    
+    .bank-logo {
+        text-align: center;
+    }
+    
+    .bank-logo img {
+        max-width: 20%;
+    }
+    
+    .page-content,
+    .footer {
+        direction: rtl;
+    }
+    
+    .bank-branch {
+        text-align: center;
+        margin-top: 15px;
+        /* margin-right: 30%; */
+        position: relative;
+        /* width: max-content; */
+    }
+    
+    .bank-branch span {
+        margin-top: 15px!important;
+        margin-right: 100%;
+        /* top: 10px; */
+        position: absolute;
+    }
+    
+    .page-content .title {
+        margin-top: 15px;
+        /* margin-right: 23%; */
+        text-align: center;
+    }
+    
+    .personal-data {
+        margin-right: 17%;
+        width: 60%;
+        margin-top: 30px;
+        display: flex;
+    }
+    
+    .personal-data .col {
+        width: 100%;
+    }
+    
+    .personal-data .col .row {
+        display: flex;
+        /* text-align: right; */
+        /* justify-content: space-between; */
+    }
+    
+    .personal-data .col .row .title-row {
+        flex: 40%;
+    }
+    
+    .personal-data .col .row .content-row {
+        flex: 60%;
+        /* text-align: right; */
+        /* margin-left: -100%; */
+    }
+    
+    .table-data,
+    .signatures {
+        margin: 0 5%;
+    }
+    
+    .table-data table {
+        width: 100%;
+        text-align: right;
+    }
+    
+    th {
+        border-top: 2px dashed black;
+        border-bottom: 2px dashed black;
+    }
+    
+    td,
+    th {
+        padding: 5px;
+    }
+    
+    .tfoot td {
+        padding: 0 5px;
+    }
+    
+    .tfoot.line-1 td {
+        border-top: 2px dashed black;
+    }
+    
+    .tfoot.line-2 td {
+        border-bottom: 2px dashed black;
+    }
+    
+    .signatures {
+        display: flex;
+        margin-top: 30px;
+    }
+    
+    .signatures .signatur {
+        flex: 50%;
+        text-align: center;
+    }

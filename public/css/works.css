@@ -1,0 +1,132 @@
+html,
+body {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    width: 100vw;
+    height: 100vh;
+}
+
+.works-window #works {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    direction: rtl;
+    align-content: baseline;
+}
+
+.works-window #works .work-item {
+    width: 25vw;
+    height: 50vh;
+    /* background-color: aqua; */
+    position: relative;
+    background-repeat: round;
+    background-size: cover;
+    overflow: hidden;
+}
+
+.works-window #works .work-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.671);
+}
+
+.works-window #works .work-item:hover::before {
+    background-color: transparent;
+}
+
+.works-window #works .work-item .work-title {
+    font-size: small;
+    position: absolute;
+    bottom: 40px;
+    right: -300px;
+    opacity: 0;
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: rgba(0, 0, 0, 0.671);
+    transition: 0.5s;
+    cursor: pointer;
+}
+
+.works-window #works .work-item:hover .work-title {
+    opacity: 1;
+    right: 20px;
+    margin-left: 20px;
+}
+
+.works-window #works .work-item .links {
+    font-size: small;
+    position: absolute;
+    bottom: 48px;
+    left: -300px;
+    z-index: 99;
+    cursor: pointer;
+    opacity: 1;
+    transition: 0.5s;
+    transform: scale(1.2);
+}
+
+.works-window #works .work-item:hover .links {
+    opacity: 1;
+    left: 20px;
+}
+
+.works-window #works .work-item .links a {
+    border-radius: 5px;
+    padding: 10px;
+    background-color: rgba(0, 0, 0, 0.671);
+    color: white;
+}
+
+.absolute {
+    position: fixed;
+    z-index: 999;
+    display: block;
+}
+
+.absolute i {
+    transform: scale(2);
+}
+
+.next,
+.previous {
+    top: 50%;
+    padding: 15px;
+    background-color: rgba(167, 163, 163, 0.64);
+    transition: 1s;
+    cursor: pointer;
+}
+
+.next:hover,
+.previous:hover {
+    transform: translate(0, -50%);
+}
+
+.previous {
+    right: 0;
+    transform: translate(50%, -50%);
+}
+
+.next {
+    left: 0;
+    transform: translate(-50%, -50%);
+}
+
+@media (max-width: 768px) {
+    .works-window #works .work-item {
+        width: 50vw;
+        height: 25vh;
+    }
+    .works-window #works .work-item:hover .work-title {
+        top: 20px;
+        bottom: auto;
+    }
+}

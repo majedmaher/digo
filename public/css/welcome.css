@@ -1,0 +1,188 @@
+@import url("https://fonts.googleapis.com/css2?family=Tajawal:wght@200;300;400;500;700;800;900&display=swap");
+* {
+    direction: rtl;
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    font-family: "Tajawal", sans-serif;
+}
+
+ :root {
+    --main-color: #5d287c;
+    --secondary-color: #8a4da7;
+    --white-color: #fff;
+}
+
+.welcome-content {
+    height: 100vh;
+    /* width: max-content; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    background: url('../images/background-page.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    /* box-shadow: #5e2c7b; */
+    /* background-color: rgb(202, 197, 37); */
+}
+
+.welcome-content::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    background-color: rgba(31, 36, 41, 0.856)
+    /* z-index: 1; */
+}
+
+.welcome-content.active .background {
+    display: flex;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    flex-wrap: nowrap;
+    /* z-index: -1; */
+}
+
+.welcome-content.active .background div {
+    flex-grow: 1;
+    height: 100%;
+    animation-name: height;
+    animation-duration: 0.9s;
+    animation-fill-mode: forwards;
+}
+
+@keyframes height {
+    from {
+        height: 100%;
+    }
+    to {
+        height: 0%;
+    }
+}
+
+.welcome-content.active .background .background-1 {
+    background-color: var(--secondary-color);
+    animation-delay: 2s;
+}
+
+.welcome-content.active .background .background-2 {
+    background-color: var(--secondary-color);
+    animation-delay: 2.2s;
+}
+
+.welcome-content.active .background .background-3 {
+    background-color: var(--secondary-color);
+    animation-delay: 2.4s;
+}
+
+.welcome-content.active .background .background-4 {
+    background-color: var(--secondary-color);
+    animation-delay: 2.6s;
+}
+
+.welcome-content .logo img {
+    width: 80px;
+    opacity: 0;
+    transform: translateY(40px);
+    z-index: -1;
+    transition-duration: 3s;
+    transition-delay: 3s;
+    margin-bottom: 50px;
+}
+
+.welcome-content.active .logo img {
+    opacity: 1;
+    transform: translateY(0px);
+}
+
+.welcome-content .content {
+    font-size: 24px;
+}
+
+.welcome-content.active .content h2 span {
+    opacity: 0;
+    animation-name: duration;
+    animation-duration: 3s;
+    animation-fill-mode: forwards;
+    font-weight: 300;
+}
+
+.welcome-content.active .content h2 .normal-span {
+    animation-delay: 1s;
+    color: white;
+}
+
+.welcome-content.active .content h2 .color-span {
+    animation-delay: 0.2s;
+    color: var(--main-color);
+}
+
+@keyframes duration {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.welcome-content .buttons {
+    width: 100%;
+    z-index: 1;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.welcome-content .buttons a {
+    position: relative;
+    color: white;
+    padding: 15px;
+    margin: 5px;
+    text-decoration: none;
+    border-radius: 10px;
+    border: 3px solid var(--main-color);
+    opacity: 0;
+    transition-duration: 3s;
+    /* z-index: 1;  */
+}
+
+.welcome-content.active .buttons a {
+    opacity: 1;
+}
+
+.welcome-content.active .buttons a:nth-of-type(1) {
+    transition-delay: 3.1s;
+}
+
+.welcome-content.active .buttons a:nth-of-type(2) {
+    transition-delay: 3.3s;
+}
+
+.welcome-content.active .buttons a:nth-of-type(3) {
+    transition-delay: 3.5s;
+}
+
+.welcome-content.active .buttons a::before {
+    position: absolute;
+    content: '';
+    top: 100%;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: var(--main-color);
+    transition-duration: 1s;
+    z-index: -1;
+}
+
+.welcome-content.active .buttons a:hover::before {
+    top: 0;
+    transition-duration: 1s;
+}
