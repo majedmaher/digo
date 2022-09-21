@@ -1,0 +1,136 @@
+@import url("https://fonts.googleapis.com/css2?family=Tajawal:wght@200;300;400;500;700;800;900&display=swap");
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Tajawal", sans-serif;
+}
+
+:root {
+    --main-color: #6f3591;
+    --gray-color: gray;
+}
+
+body {
+    font-family: "Tajawal", sans-serif;
+    direction: rtl;
+    text-align: right;
+    /* height: 200vh; */
+}
+
+.space {
+    margin: 40px 100px 0;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header .header-title {
+    color: var(--main-color);
+}
+
+.line-header {
+    height: 10px;
+    border-width: 0;
+    background-color: var(--main-color);
+
+    margin-top: 25px;
+}
+
+.main-inforamtion > div {
+    width: 33.3%;
+    line-height: 27px;
+}
+
+.owner-information,
+.client-information,
+.invoice-number-title,
+.invoice-date-title {
+    font-size: 20px;
+    color: var(--gray-color);
+}
+
+.main-inforamtion > div .title {
+    font-weight: 600;
+}
+
+.main-inforamtion > div .company-name {
+    font-weight: 900;
+    color: black;
+}
+
+.client-information {
+    margin-right: auto;
+}
+
+.invoive-information {
+    padding: 10px 100px;
+    background-color: #8080801a;
+    display: flex;
+    justify-content: space-between;
+}
+
+.invoive-information {
+    width: 100%;
+    margin-top: 40px;
+}
+
+.invoice-number-title .invoice-number,
+.invoice-date-title .date-number {
+    color: #585858;
+}
+
+table {
+    width: 100%;
+    text-align: center;
+    border: none;
+    border-collapse: collapse;
+}
+table tr {
+    border-bottom: 1px solid #c9c9c9;
+}
+table tr.th {
+    background-color: #e6e6e6;
+    border-bottom: 1px solid black;
+}
+
+table tr th,
+table tr td {
+    padding: 20px;
+}
+
+table td {
+    padding: 10px;
+}
+
+.total {
+    width: 50%;
+    margin-right: auto;
+}
+
+.total .item {
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.total .item div {
+    font-size: 20px;
+}
+
+.total .item .amount {
+    font-weight: 600;
+}
+
+.total .grand-total .amount {
+    font-weight: 900;
+}
+
+.bank-info {
+    font-size: 20px;
+    font-weight: 500;
+    color: var(--gray-color);
+}

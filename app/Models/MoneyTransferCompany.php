@@ -20,4 +20,9 @@ class MoneyTransferCompany extends Model
     {
         return $this->belongsTo(Company::class);
     }
+
+    public function tax()
+    {
+        return $this->hasOne(Tax::class);
+    }
 }

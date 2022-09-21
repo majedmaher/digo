@@ -16,6 +16,7 @@ use App\Models\Subscribe;
 use App\Models\User;
 use App\Models\Work;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Mail;
 
 class SiteUIController extends Controller
@@ -23,9 +24,10 @@ class SiteUIController extends Controller
 
     public function welcome()
     {
+        // Artisan::call('backup:run --only-db');
         return view('site.welcome');
     }
-
+    // /usr/local/bin/php /home/diginhkp/digo.sa/artisan schedule:run
     public function main()
     {
         return view('site.main')

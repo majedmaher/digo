@@ -21,6 +21,11 @@ class Company extends Model
         return $this->hasMany(MoneyTransferCompany::class);
     }
 
+    public function tax()
+    {
+        return $this->hasMany(Tax::class);
+    }
+
     public function sections()
     {
         return $this->belongsToMany(Section::class);

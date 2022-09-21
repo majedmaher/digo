@@ -18,6 +18,7 @@ use App\Http\Controllers\ServicesController;
 use App\Http\Controllers\SiteUIController;
 use App\Http\Controllers\SliderController;
 use App\Http\Controllers\SubscribeController;
+use App\Http\Controllers\TaxController;
 use App\Http\Controllers\WorkController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -200,6 +201,13 @@ Route::group(['middleware' => ['auth', 'AdminAuth'], 'prefix' => 'admin'], funct
 
     Route::get('/financial-claim', [MoneyTransferCompanyController::class, 'setFinancialClaim'])->name('transfers.financial.claim');
     Route::post('/financial-claim', [MoneyTransferCompanyController::class, 'getFinancialClaimsByMonth'])->name('transfers.financial.claim.month');
+    Route::get('/tax-invoice/{id}', [MoneyTransferCompanyController::class, 'taxInvoice'])->name('tax-invoice');
+    Route::get('/tax-invoice/company/{id}', [MoneyTransferCompanyController::class, 'taxInvoiceindex'])->name('tax-invoice.index');
+    Route::post('/tax-invoice', [MoneyTransferCompanyController::class, 'taxInvoiceStore'])->name('tax-invoice.store');
+    Route::get('/tax-invoice/edit/{id}', [MoneyTransferCompanyController::class, 'taxInvoiceEdit'])->name('tax-invoice.edit');
+    Route::post('/tax-invoice/update/{id}', [MoneyTransferCompanyController::class, 'taxInvoiceUpdate'])->name('tax-invoice.update');
+    Route::post('/tax-invoice/delete', [MoneyTransferCompanyController::class, 'taxInvoiceDelete'])->name('tax-invoice.delete');
+    Route::get('/tax-invoice/delete/{id}', [MoneyTransferCompanyController::class, 'taxInvoiceDeleteGet'])->name('tax-invoice.delete-get');
 
     Route::get('/sections', [SectionController::class, 'index'])->name('sections.show');
     Route::get('/sections/trashed', [SectionController::class, 'sectionsTrashed'])->name('sections.trashed');

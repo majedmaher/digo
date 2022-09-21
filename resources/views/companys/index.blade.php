@@ -49,7 +49,7 @@ $count = 0;
               <a href="{{route('company.edit',['id'=> $company->id])}}"> <i class="fas fa-edit"></i> </a>&nbsp;&nbsp;
               <a class="text-danger" href="{{route('company.destroy',['id'=> $company->id])}}"> <i class="fas fa-trash-alt"></i> </a>&nbsp;&nbsp;
               <a href="{{route('transfers.company.show',['id'=> $company->id])}}"> <i class="fas fa-file-invoice-dollar"></i> </a>&nbsp;&nbsp;
-
+              <a href="{{route('tax-invoice.index',['id'=> $company->id])}}"> <i class="fas fa-receipt"></i> </a>
             </td>
           </tr>
 

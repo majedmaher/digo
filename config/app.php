@@ -177,6 +177,10 @@ return [
         Anhskohbo\NoCaptcha\NoCaptchaServiceProvider::class,
 
         Maatwebsite\Excel\ExcelServiceProvider::class,
+
+        Spatie\Backup\BackupServiceProvider::class,
+        App\Providers\GoogleDriveServiceProvider::class,
+        Barryvdh\DomPDF\ServiceProvider::class,
     ],
 
     /*
@@ -234,6 +238,7 @@ return [
 
 
         'Excel' => Maatwebsite\Excel\Facades\Excel::class,
+        'PDF' => Barryvdh\DomPDF\Facade::class,
     ],
 
 ];

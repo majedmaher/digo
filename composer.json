@@ -10,6 +10,7 @@
     "require": {
         "php": "^7.3|^8.0",
         "anhskohbo/no-captcha": "^3.3",
+        "barryvdh/laravel-dompdf": "^2.0",
         "fideloper/proxy": "^4.4",
         "fruitcake/laravel-cors": "^2.0",
         "google/recaptcha": "^1.2",
@@ -20,7 +21,9 @@
         "laravel/tinker": "^2.5",
         "laravel/ui": "^3.3",
         "maatwebsite/excel": "^3.1",
-        "pusher/pusher-php-server": "^7.0"
+        "nao-pon/flysystem-google-drive": "~1.1",
+        "pusher/pusher-php-server": "^7.0",
+        "spatie/laravel-backup": "^7.0"
     },
     "require-dev": {
         "facade/ignition": "^2.5",

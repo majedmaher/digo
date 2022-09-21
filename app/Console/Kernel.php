@@ -2,6 +2,7 @@
 
 namespace App\Console;
 
+use App\Console\Commands\UploadBackup;
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
 
@@ -25,8 +26,16 @@ class Kernel extends ConsoleKernel
     protected function schedule(Schedule $schedule)
     {
         // $schedule->command('inspire')->hourly();
-        $schedule->command('queue:work --tries=2')->everyMinute();
-        $schedule->command('queue:restart')->everyFiveMinutes();
+
+        // $schedule->command('queue:work --tries=2')->everyMinute();
+        // $schedule->command('queue:restart')->everyFiveMinutes();
+
+        $schedule->command('backup:clean')->dailyAt('01:30');
+        $schedule->command('backup:run')->dailyAt('01:35');
+        // $schedule->command('backup:clean')->everyMinute();
+        // $schedule->command('backup:run')->everyMinute();
+        // $schedule->command('backup:clean')->everyMinute();
+        // $schedule->command('backup:run')->mondays();
         // $schedule->command('queue:retry all')->everyMinute();
     }
 

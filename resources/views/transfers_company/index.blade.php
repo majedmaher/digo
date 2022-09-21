@@ -38,31 +38,55 @@ $count = 0;
           <label for="exampleFormControlInput1">المبلغ </label>
           <input name="amount" type="number" step="0.01">
         </div>
-
+        <br />
         <div class="form-group">
           <label for="exampleFormControlInput1">الايضاحات </label>
           <input type="text" name="clarifications" class="form-control">
         </div>
-
+        <br />
         <div class="form-group d-flex">
           <label for="exampleFormControlInput1">بتاريخ </label>
           <input type="date" name="date" class="form-control" style="width: 200px!important;">
         </div>
-
+        <br />
         <div class="form-group d-flex">
           <label for="exampleFormControlInput1">لشهر </label>
           <input type="month" name="month_due" class="form-control" style="width: 200px!important;">
         </div>
-
+        <br />
         <div class="form-group">
           <label for="exampleFormControlInput1">صورة الحوالة المالية </label>
           <input type="file" name="passbook" class="form-control">
         </div>
+        <br />
 
+        <hr />
+        <br />
         <div class="form-group">
           <label for="exampleFormControlInput1">المطالبة المالية </label>
           <input type="file" name="financial_claim" class="form-control">
         </div>
+
+        @if ($taxes->count() > 0)
+        <br />
+        -------OR-------
+        <br />
+
+        <div class="tax">
+          <div class="form-group">
+            <label for="exampleFormControlInput1"> اختر المطالبة المالية </label>
+            <select name="tax_id">
+              @foreach ($taxes as $tax)
+              <option value="{{$tax->id}}">{{$tax->invoice_date}}</option>
+              @endforeach
+            </select>
+          </div>
+        </div>
+
+        @endif
+        <br />
+        <hr />
+        <br />
 
         <div class="form-group">
           <button class="btn btn-danger" type="submit">حفظ</button>
@@ -103,7 +127,9 @@ $count = 0;
               @endif
             </td>
             <td>
-              @if ($transfer->financial_claim)
+              @if ($transfer->tax)
+              <a href="{{ route('tax-invoice',['id'=>$transfer->tax->id]) }}" target="_blank">انقر هنا</a>
+              @elseif ($transfer->financial_claim)
               <a href="{{ URL::asset($transfer->financial_claim) }}" target="_blank">انقر هنا</a>
               @endif
             </td>

@@ -14,7 +14,7 @@ class CreateMoneyTransferCompaniesTable extends Migration
     public function up()
     {
         Schema::create('money_transfer_companies', function (Blueprint $table) {
-            $table->increments('id');
+            $table->id();
             $table->integer('company_id');
             $table->float('amount');
             $table->date('date');
