@@ -51,7 +51,7 @@
             <br />
             {{$tax->company->address}}
             <br />
-            الرقم الضريبي: {{$tax->company->commercial_registration_no}}
+            رقم السجل التجاري: {{$tax->company->commercial_registration_no}}
         </div>
     </div>
 

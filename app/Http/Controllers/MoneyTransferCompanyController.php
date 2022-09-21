@@ -14,7 +14,7 @@ class MoneyTransferCompanyController extends Controller
 
     public function taxInvoiceindex($id)
     {
-        $tax = Tax::latest()->get();
+        $tax = Tax::latest()->where('company_id', $id)->get();
         return view('financial_claim.tax-invoice-index')->with('company', Company::find($id))
             ->with('tax', $tax);
     }
