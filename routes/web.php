@@ -47,7 +47,12 @@ Route::get('/works', 'SiteUIController@latestWorks')->name('latestWorks');
 Route::get('/works/{pageNumber}', 'SiteUIController@works')->name('works');
 Route::post('/contact/store', [SiteUIController::class, 'contactStore'])->name('contact.store');
 Route::post('/subscribe/store', [SiteUIController::class, 'subscribeStore'])->name('subscribe.store');
+Route::get('/packages', 'SiteUIController@packages')->name('packages');
 
+
+Route::get('/privacy', function () {
+    return view('privacy.privacy');
+});
 
 
 // Route::post('/', 'PostController@store' )->name('post.store');
@@ -225,14 +230,11 @@ Route::group(['middleware' => ['auth', 'AdminAuth'], 'prefix' => 'admin'], funct
     Route::post('/presence-absence/officer/{id}', [PresenceAbsenceController::class, 'filterOfficer'])->name('presence.absence.filterOfficer');
 });
 
-
 Route::get('blogs', [GuestBlogController::class, 'index'])->name('guest.blogs.show');
 Route::get('create/blog', [GuestBlogController::class, 'create'])->name('guest.blog.create');
 Route::post('store/blog', [GuestBlogController::class, 'store'])->name('guest.blog.store');
 Route::get('show/blog/{slug}', [GuestBlogController::class, 'show'])->name('guest.blog.show');
 Route::get('edit/blog/{slug}', [GuestBlogController::class, 'edit'])->name('guest.blog.edit');
 Route::post('update/blog/{slug}', [GuestBlogController::class, 'update'])->name('guest.blog.update');
-
-
 
 // Route::get('blogs/updateSlugs', [BlogController::class, 'updateSlugs'])->name('blogs.update.slugs');

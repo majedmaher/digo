@@ -3,6 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>فاتورة إلكترونية مقدمة من شركة ديجو</title>
@@ -129,6 +130,12 @@
 رقم حساب : 463608010078749 
 ايبان الحساب : SA38 8000 0463 6080 1007 8749
         </pre>
+    </div>
+
+    <div class="qr-code">
+        <!-- <div class="card-body"> -->
+        {!! QrCode::generate('https://digo.sa') !!}
+        <!-- </div> -->
     </div>
 </body>
 

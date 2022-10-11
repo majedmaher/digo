@@ -23,6 +23,7 @@
         "maatwebsite/excel": "^3.1",
         "nao-pon/flysystem-google-drive": "~1.1",
         "pusher/pusher-php-server": "^7.0",
+        "simplesoftwareio/simple-qrcode": "^4.2",
         "spatie/laravel-backup": "^7.0"
     },
     "require-dev": {

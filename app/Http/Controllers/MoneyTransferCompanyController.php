@@ -6,6 +6,7 @@ use App\Models\Company;
 use App\Models\MoneyTransferCompany;
 use App\Models\Tax;
 use App\Models\TaxItem;
+use PDF;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 
@@ -125,6 +126,11 @@ class MoneyTransferCompanyController extends Controller
     {
         $tax = Tax::with('taxes', 'company')->get()->find($id);
         $today = Carbon::today()->format('Y-m-d');
+        // $pdf = PDF::loadView('financial_claim.tax-invoice', compact('tax', 'today'));
+        // $pdf->setOptions([
+        //     'defaultPaperSize' => 'a4',
+        // ]);
+        // return $pdf->download('invoice.pdf');
         return view('financial_claim.tax-invoice', compact('tax', 'today'));
     }
 
@@ -160,10 +166,13 @@ class MoneyTransferCompanyController extends Controller
 
     public function index($id)
     {
+        // $transfers = MoneyTransferCompany::orderBy('month_due', 'DESC')->where('company_id', $id)->with('tax', function ($query) {
+        //     return $query->where('company_id', '=', null);
+        // })->get();
         $transfers = MoneyTransferCompany::orderBy('month_due', 'DESC')->where('company_id', $id)->with('tax')->get();
         return view('transfers_company.index')->with('transfers', $transfers)
             ->with('company', Company::find($id))
-            ->with('taxes', Tax::latest()->where('company_id', $id)->get());
+            ->with('taxes', Tax::latest()->where('company_id', $id)->whereNull('money_transfer_company_id')->get());
     }
 
     public function transfersTrashed($id)

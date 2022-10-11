@@ -174,12 +174,8 @@ class SiteUIController extends Controller
         return redirect()->back();
     }
 
-
-
-
-
-    // Blog Page
-
-
-
+    public function packages()
+    {
+        return view('site.packages');
+    }
 }

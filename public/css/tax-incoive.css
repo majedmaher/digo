@@ -1,9 +1,16 @@
 @import url("https://fonts.googleapis.com/css2?family=Tajawal:wght@200;300;400;500;700;800;900&display=swap");
+
+*::after,
+*::before,
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     font-family: "Tajawal", sans-serif;
+}
+
+html {
+    font-size: 62.5%;
 }
 
 :root {
@@ -49,7 +56,7 @@ body {
 .client-information,
 .invoice-number-title,
 .invoice-date-title {
-    font-size: 20px;
+    font-size: 1.5rem;
     color: var(--gray-color);
 }
 
@@ -118,7 +125,7 @@ table td {
 }
 
 .total .item div {
-    font-size: 20px;
+    font-size: 1.5rem;
 }
 
 .total .item .amount {
@@ -130,7 +137,12 @@ table td {
 }
 
 .bank-info {
-    font-size: 20px;
+    font-size: 1.5rem;
     font-weight: 500;
     color: var(--gray-color);
+}
+
+.qr-code {
+    text-align: center;
+    margin-bottom: 25px;
 }
