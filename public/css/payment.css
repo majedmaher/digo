@@ -1,0 +1,145 @@
+@import url("https://fonts.googleapis.com/css2?family=Tajawal:wght@200;300;400;500;700;800;900&display=swap");
+
+*::after,
+*::before,
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Tajawal", sans-serif;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+:root {
+    --main-color: #6f3591;
+    --gray-color: gray;
+}
+
+body {
+    font-family: "Tajawal", sans-serif;
+    direction: rtl;
+    text-align: right;
+}
+
+.content {
+    width: 80%;
+    margin: 40px auto;
+}
+
+.content .title {
+    color: var(--main-color);
+    margin: 20px 0;
+    font-size: 1.5rem;
+}
+
+.content-details {
+    display: flex;
+    margin: 5px 20px;
+    justify-content: space-between;
+}
+.content-details .personal-details {
+    width: 40%;
+}
+.content-details .personal-details h2 {
+    font-weight: 500;
+    font-size: 2.5rem;
+}
+.content-details .payment-img {
+    width: 50%;
+}
+
+.content-details .payment-img img {
+    width: 100%;
+    height: 100%;
+}
+
+.form-group {
+    display: flex;
+    gap: 15px;
+    margin-top: 15px;
+}
+
+.form-group .form-item {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    font-size: 1.5rem;
+}
+
+.form-group .form-item input {
+    outline: none;
+    border: none;
+    border-bottom: 2px solid black;
+    font-size: 1.5rem;
+    padding: 5px;
+    background-color: #f4f4f4;
+}
+
+.form-group .form-item input.error {
+    border-bottom: 2px solid red;
+    background-color: #ff00004a;
+}
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    appearance: none;
+}
+
+/* Firefox */
+input[type="number"] {
+    appearance: textfield;
+}
+
+form h2 {
+    margin-top: 15px;
+}
+
+form button {
+    background-color: var(--main-color);
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    color: white;
+    align-items: center;
+    width: 100%;
+    justify-content: center;
+    padding: 10px;
+    font-size: 2rem;
+    cursor: pointer;
+    margin-top: 15px;
+}
+
+form button svg {
+    width: 25px;
+    height: 25px;
+    fill: white;
+}
+
+@media (max-width: 981px) {
+    .content {
+        width: 100%;
+        margin: 30px 0px;
+    }
+    .content .logo,
+    .content .title {
+        margin: 5px 20px;
+    }
+    .content-details {
+        flex-direction: column;
+    }
+    .content-details .personal-details,
+    .content-details .payment-img {
+        width: 100%;
+    }
+
+    .form-group {
+        flex-direction: column;
+    }
+    .content-details .payment-img {
+        margin-top: 15px;
+    }
+}

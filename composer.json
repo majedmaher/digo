@@ -9,6 +9,7 @@
     "license": "MIT",
     "require": {
         "php": "^7.3|^8.0",
+        "amrshawky/laravel-currency": "^5.0",
         "anhskohbo/no-captcha": "^3.3",
         "barryvdh/laravel-dompdf": "^2.0",
         "fideloper/proxy": "^4.4",
@@ -24,7 +25,9 @@
         "nao-pon/flysystem-google-drive": "~1.1",
         "pusher/pusher-php-server": "^7.0",
         "simplesoftwareio/simple-qrcode": "^4.2",
-        "spatie/laravel-backup": "^7.0"
+        "spatie/laravel-backup": "^7.0",
+        "srmklive/paypal": "^3.0",
+        "stripe/stripe-php": "^9.7"
     },
     "require-dev": {
         "facade/ignition": "^2.5",

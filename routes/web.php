@@ -12,6 +12,7 @@ use App\Http\Controllers\MoneyTransferCompanyController;
 use App\Http\Controllers\MoneyTransferController;
 use App\Http\Controllers\OfficerController;
 use App\Http\Controllers\OrderController;
+use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\PresenceAbsenceController;
 use App\Http\Controllers\SectionController;
 use App\Http\Controllers\ServicesController;
@@ -47,6 +48,7 @@ Route::get('/works', 'SiteUIController@latestWorks')->name('latestWorks');
 Route::get('/works/{pageNumber}', 'SiteUIController@works')->name('works');
 Route::post('/contact/store', [SiteUIController::class, 'contactStore'])->name('contact.store');
 Route::post('/subscribe/store', [SiteUIController::class, 'subscribeStore'])->name('subscribe.store');
+
 Route::get('/packages', 'SiteUIController@packages')->name('packages');
 
 
@@ -228,6 +230,9 @@ Route::group(['middleware' => ['auth', 'AdminAuth'], 'prefix' => 'admin'], funct
     Route::post('/presence-absence/update', [PresenceAbsenceController::class, 'update'])->name('presence.absence.update');
     Route::get('/presence-absence/officer/{id}', [PresenceAbsenceController::class, 'officer'])->name('presence.absence.officer');
     Route::post('/presence-absence/officer/{id}', [PresenceAbsenceController::class, 'filterOfficer'])->name('presence.absence.filterOfficer');
+
+    Route::get('/payments', [PaymentController::class, 'index'])->name('payments');
+    Route::get('/payments/show/{id}', [PaymentController::class, 'show'])->name('payments.show');
 });
 
 Route::get('blogs', [GuestBlogController::class, 'index'])->name('guest.blogs.show');

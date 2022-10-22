@@ -10,6 +10,7 @@ use App\Models\Contact;
 use App\Models\Email;
 use App\Models\JobRequest;
 use App\Models\Order;
+use App\Models\Package;
 use App\Models\Services;
 use App\Models\Slider;
 use App\Models\Subscribe;
@@ -176,6 +177,7 @@ class SiteUIController extends Controller
 
     public function packages()
     {
-        return view('site.packages');
+        $packages = Package::where('is_active', 1)->latest()->take(3)->get();
+        return view('site.packages', compact('packages'));
     }
 }

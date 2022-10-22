@@ -83,6 +83,29 @@
       </li>
       <li>
         <div class="iocn-link">
+          <a href="{{route('packages.index')}}">
+            <i class='bx bx-package'></i>
+            <span class="link_name">الباقات</span>
+          </a>
+          <i class='bx bxs-chevron-down arrow'></i>
+        </div>
+        <ul class="sub-menu">
+          <li><a class="link_name" href="{{route('packages.index')}}">الباقات</a></li>
+          <li><a href="{{route('packages.create')}}">اضف باقة</a></li>
+          <li><a href="{{route('packages.index')}}">الباقات الموجودة مسبقًا</a></li>
+        </ul>
+      </li>
+      <li>
+        <a href="{{route('payments')}}">
+          <i class='bx bx-credit-card'></i>
+          <span class="link_name">عمليات الدفع</span>
+        </a>
+        <ul class="sub-menu blank">
+          <li><a class="link_name" href="{{route('payments')}}">عمليات الدفع</a></li>
+        </ul>
+      </li>
+      <li>
+        <div class="iocn-link">
           <a href="{{route('companys.show')}}">
             <i class='bx bxs-factory'></i>
             <span class="link_name">الشركات</span>
