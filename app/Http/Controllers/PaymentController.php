@@ -50,7 +50,7 @@ class PaymentController extends Controller
         $package = Package::find($request->package_id);
 
         $price = Currency::convert()
-            ->from('sar')
+            ->from($package->currencyـabbreviation)
             ->to('usd')
             ->amount($package->price)
             ->round(2)
@@ -60,10 +60,17 @@ class PaymentController extends Controller
         $provider->setApiCredentials(config('paypal'));
         $paypalToken = $provider->getAccessToken();
 
+        $data = array();
+        $data['package_id'] = $request->package_id;
+        $data['first_name'] = $request->first_name;
+        $data['last_name'] = $request->last_name;
+        $data['email'] = $request->email;
+        $data['phone_number'] = $request->phone_number;
+
         $response = $provider->createOrder([
             "intent" => "CAPTURE",
             "application_context" => [
-                "return_url" => route('payments.successTransaction', [$request]),
+                "return_url" => route('payments.successTransaction', ['data' => $data]),
                 "cancel_url" => route('payments.cancelTransaction'),
             ],
             "purchase_units" => [
@@ -109,11 +116,11 @@ class PaymentController extends Controller
 
         if (isset($response['status']) && $response['status'] == 'COMPLETED') {
             Payment::create([
-                'package_id' => $request['package_id'],
-                'first_name' => $request['first_name'],
-                'last_name' => $request['last_name'],
-                'email' => $request['email'],
-                'phone_number' => $request['phone_number'],
+                'package_id' => $request['data']['package_id'],
+                'first_name' => $request['data']['first_name'],
+                'last_name' => $request['data']['last_name'],
+                'email' => $request['data']['email'],
+                'phone_number' => $request['data']['phone_number'],
 
                 'payment_type' => 'Paypal',
                 'transaction_id' => $request['token'],
