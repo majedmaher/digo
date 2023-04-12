@@ -48,18 +48,16 @@
         <div class="client-information">
             <span class="title">العميل</span>
             <br />
-            <span class="company-name">{{$tax->company->company_name}}</span>
+            <span class="company-name">{{$company->company_name}}</span>
             <br />
-            {{$tax->company->address}}
+            {{$company->address}}
             <br />
-            رقم السجل التجاري: {{$tax->company->commercial_registration_no}}
+            رقم السجل التجاري: {{$company->commercial_registration_no}}
         </div>
     </div>
 
     <div class="invoive-information">
-        <div class="invoice-number-title">رقم الفاتورة: <spane class="invoice-number">{{$tax->invoice_no}}</spane>
-        </div>
-        <div class="invoice-date-title">تاريخ الفاتورة: <spane class="date-number">{{$today}}</spane>
+        <div class="invoice-date-title">تاريخ الفاتورة: <span class="date-number">{{$today}}</span>
         </div>
     </div>
 
@@ -67,6 +65,7 @@
     $netTotal = 0;
     $totalTax = 0;
     $totalAmount = 0;
+    $count = 1;
     ?>
 
     <div class="table space">
@@ -82,9 +81,11 @@
                 <th>مبلغ ضريبة القيمة المضافة</th>
             </tr>
 
-            @foreach ($tax->taxes as $key => $value )
+            @foreach ($company->transfers as $transfer )
+            @if ($transfer->tax !== null)
+            @foreach ($transfer->tax->taxes as $value )
             <tr>
-                <td>{{$key+1}}</td>
+                <td>{{$count++}}</td>
                 <td>{{$value->description}}</td>
                 <td>{{$value->quantity}}</td>
                 <td>{{$value->price}} ر. س</td>
@@ -99,6 +100,9 @@
                 ?>
             </tr>
             @endforeach
+            @endif
+            @endforeach
+
 
         </table>
 
@@ -123,14 +127,14 @@
         </div>
     </div>
 
-    <div class="space">
+    <!-- <div class="space">
         <pre class="bank-info">
 اسم البنك : بنك الراجحي 
 اسم المحول إليه : Yasir Omar ALfarsi
 رقم حساب : 463608010078749 
 ايبان الحساب : SA38 8000 0463 6080 1007 8749
         </pre>
-    </div>
+    </div> -->
 
     <div class="qr-code">
         <!-- <div class="card-body"> -->

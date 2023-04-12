@@ -13,7 +13,7 @@ class MoneyTransferCompany extends Model
 
     protected $dates = ['deleated_at'];
     protected $fillable = [
-        'amount', 'date', 'month_due', 'company_id', 'clarifications', 'passbook', 'financial_claim'
+        'amount', 'date', 'month_due', 'company_id', 'clarifications', 'passbook', 'financial_claim', 'status'
     ];
 
     public function company()
@@ -25,4 +25,15 @@ class MoneyTransferCompany extends Model
     {
         return $this->hasOne(Tax::class);
     }
+
+    public function setStatusAttribute($value)
+    {
+        $this->attributes['status'] = $value == 'on' ? 1 : 0;
+    }
+
+    // public function getStatusAttribute($value)
+    // {
+    //     $status = $value == 1 ? 1 : 0;
+    //     $this->attributes['status'] = $status;
+    // }
 }

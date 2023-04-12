@@ -77,9 +77,11 @@ class BlogController extends Controller
             'title' =>  $request->title,
             'content' =>   $request->content,
             'photo' =>  'uploads/blogs/' . $newPhoto,
-            'slug' => $this->slug($request->title),
+            // 'slug' => $this->slug($request->title),
+            // 'slug' => str_slug($request->title),
+            'slug' => str_replace(' ', '-', $request->title),
             'description' =>  $request->description,
-            'keywords' =>  $request->keywords,
+            'keywords' =>  str_replace('،', ',', $request->keywords),
         ]);
         $tokens = FcmToken::selected()->all();
         // return $tokens;
@@ -148,10 +150,12 @@ class BlogController extends Controller
         }
 
         $blog->title = $request->title;
-        $blog->slug = $this->slug($request->title);
+        // $blog->slug = $this->slug($request->title);
+        // $blog->slug = str_slug($request->title);
+        $blog->slug = str_replace(' ', '-', $request->title);
         $blog->content = $request->content;
         $blog->description = $request->description;
-        $blog->keywords = $request->keywords;
+        $blog->keywords = str_replace('،', ',', $request->keywords);
         $blog->save();
         return redirect()->back();
     }

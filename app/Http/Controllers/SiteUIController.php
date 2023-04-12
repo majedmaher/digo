@@ -115,6 +115,7 @@ class SiteUIController extends Controller
     public function blogDetails($slug)
     {
         $blog = Blog::where('slug', $slug)->first();
+        abort_if(!$blog, 404);
         return view('site.blog_details')
             ->with('latestBlogs', Blog::orderBy('id', 'DESC')->take(8)->get())
             ->with('blog', $blog);
@@ -178,6 +179,13 @@ class SiteUIController extends Controller
     public function packages()
     {
         $packages = Package::where('is_active', 1)->latest()->take(3)->get();
-        return view('site.packages', compact('packages'));
+        return view('site.packages', compact('packages'))
+            ->with('sliders',  Slider::orderBy('created_at', 'DESC')->get())
+            ->with('slidersTitle',  Slider::orderBy('created_at', 'DESC')->select('title')->get());
+
+
+        // ->with('firstServices', Services::orderBy('id', 'desc')->take(3)->get())
+        // ->with('secondServices', Services::orderBy('id', 'desc')->skip(3)->take(3)->get())
+        // ->with('works', Work::orderBy('id', 'desc')->where('is_favorite', 1)->get());
     }
 }

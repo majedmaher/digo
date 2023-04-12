@@ -55,7 +55,7 @@
                                 <a class="nav-link text-color" href="{{ route('main') }}#works">اعمالنا</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link text-color" href="{{ route('blog', ['pageNumber' => 1]) }}#blog-content">المدونة</a>
+                                <a class="nav-link text-color" href="{{ route('blog', ['pageNumber' => 1]) }}">المدونة</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link text-color" href="{{ route('job.request') }}#job-request">وظيفة</a>
@@ -140,6 +140,14 @@
     @yield('scripts')
 
     <script>
+        $(document).ready(function() {
+            $('html').animate({
+                scrollTop: $(window).height()
+            }, 200);
+        });
+    </script>
+
+    <script>
         $(window).on("load", function() {
             $(".loader-wrapper").fadeOut("slow");
             $(".page").css("display", "block");
@@ -162,7 +170,7 @@
     <script src="{{ asset('js/bootstrap.bundle.min.js') }}"></script>
 
     <script>
-        $("nav").css("display", "none");
+        // $("nav").css("display", "none");
 
         // Toggle Theme Start - light and dark mode
         function updateIcon() {
@@ -208,11 +216,11 @@
             } else {
                 nav.classList.remove('nav-background', 'shadow');
             }
-            if (window.pageYOffset > window.innerHeight) {
-                $("nav").css("display", "block");
-            } else {
-                $("nav").css("display", "none");
-            }
+            // if (window.pageYOffset > window.innerHeight) {
+            //     $("nav").css("display", "block");
+            // } else {
+            //     $("nav").css("display", "none");
+            // }
         });
         // Scroll Navbar End
     </script>

@@ -59,7 +59,7 @@
                                 <a class="nav-link text-color" href="{{ route('main') }}#works">اعمالنا</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link text-color" href="{{ route('blog', ['pageNumber' => 1]) }}#blog-content">المدونة</a>
+                                <a class="nav-link text-color" href="{{ route('blog', ['pageNumber' => 1]) }}">المدونة</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link text-color" href="{{ route('job.request') }}#job-request">وظيفة</a>

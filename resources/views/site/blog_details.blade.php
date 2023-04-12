@@ -31,13 +31,3 @@
     </div>
 </div>
 @endsection
-
-@section('scripts')
-<script>
-    $(document).ready(function() {
-        $('html, body').animate({
-            scrollTop: $(window).height()
-        }, 200);
-    });
-</script>
-@endsection

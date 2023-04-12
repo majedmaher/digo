@@ -22,6 +22,7 @@ class CreateMoneyTransferCompaniesTable extends Migration
             $table->string('passbook')->nullable();
             $table->string('financial_claim')->nullable();
             $table->longText('clarifications')->nullable();
+            $table->boolean('status')->default(0);
             $table->softDeletes();
             $table->timestamps();
         });

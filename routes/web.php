@@ -210,9 +210,11 @@ Route::group(['middleware' => ['auth', 'AdminAuth'], 'prefix' => 'admin'], funct
     Route::post('/financial-claim', [MoneyTransferCompanyController::class, 'getFinancialClaimsByMonth'])->name('transfers.financial.claim.month');
     Route::get('/tax-invoice/{id}', [MoneyTransferCompanyController::class, 'taxInvoice'])->name('tax-invoice');
     Route::get('/tax-invoice/company/{id}', [MoneyTransferCompanyController::class, 'taxInvoiceindex'])->name('tax-invoice.index');
+    Route::post('/tax-invoice/company/{id}', [MoneyTransferCompanyController::class, 'taxInvoiceCompany'])->name('tax-invoice.company');
     Route::post('/tax-invoice', [MoneyTransferCompanyController::class, 'taxInvoiceStore'])->name('tax-invoice.store');
     Route::get('/tax-invoice/edit/{id}', [MoneyTransferCompanyController::class, 'taxInvoiceEdit'])->name('tax-invoice.edit');
     Route::post('/tax-invoice/update/{id}', [MoneyTransferCompanyController::class, 'taxInvoiceUpdate'])->name('tax-invoice.update');
+    Route::post('/tax-item/update', [MoneyTransferCompanyController::class, 'taxItemUpdate'])->name('tax.item.update');
     Route::post('/tax-invoice/delete', [MoneyTransferCompanyController::class, 'taxInvoiceDelete'])->name('tax-invoice.delete');
     Route::get('/tax-invoice/delete/{id}', [MoneyTransferCompanyController::class, 'taxInvoiceDeleteGet'])->name('tax-invoice.delete-get');
 

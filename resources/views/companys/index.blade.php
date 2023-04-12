@@ -7,6 +7,13 @@ $count = 0;
 <div class="container">
   <div class="row justify-content-center">
     <div class="col-md-12">
+
+      <form action="{{route('transfers.financial.claim')}}" method="POST" class="d-flex">
+        @csrf
+        <input type="month" name="month" class="form-control" style="width: 200px!important;">
+        <button style="border: none;"><i class="fas fa-2x fa-print"></i></button>
+      </form>
+
       <table class="table" style="font-size: small;">
         <thead class="thead-dark">
           <tr>
@@ -49,7 +56,7 @@ $count = 0;
               <a href="{{route('company.edit',['id'=> $company->id])}}"> <i class="fas fa-edit"></i> </a>&nbsp;&nbsp;
               <a class="text-danger" href="{{route('company.destroy',['id'=> $company->id])}}"> <i class="fas fa-trash-alt"></i> </a>&nbsp;&nbsp;
               <a href="{{route('transfers.company.show',['id'=> $company->id])}}"> <i class="fas fa-file-invoice-dollar"></i> </a>&nbsp;&nbsp;
-              <a href="{{route('tax-invoice.index',['id'=> $company->id])}}"> <i class="fas fa-receipt"></i> </a>
+              <!-- <a href="{{route('tax-invoice.index',['id'=> $company->id])}}"> <i class="fas fa-receipt"></i> </a> -->
             </td>
           </tr>
 

@@ -22,7 +22,10 @@
             <div class="col-md-6 col-12">
                 <div class="card">
 
-                    <img src="{{ URL::asset($blog->photo) }}" class="card-img-top" alt="{{ $blog->title }}" />
+                    <a href="{{ route('blog.details', ['slug' => $blog->slug]) }}" class="img-a">
+                        <img src="{{ URL::asset($blog->photo) }}" class="card-img-top" alt="{{ $blog->title }}" />
+                    </a>
+
                     <div class="card-body">
                         <h1 class="card-title">{{ $blog->title }}</h1>
                         <p class="max-lines">
